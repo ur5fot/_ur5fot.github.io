@@ -1,0 +1,22 @@
+CACHE MANIFEST
+# Версия 1.0
+
+CACHE:
+mp3/false.m4a
+mp3/true.m4a
+mp3/s1.m4a
+mp3/s2.m4a
+mp3/s3.m4a
+mp3/s4.m4a
+mp3/s5.m4a
+mp3/s6.m4a
+mp3/s7.m4a
+mp3/s8.m4a
+mp3/s9.m4a
+mp3/s10.m4a
+js/pisat.js
+fonts/RobotoMedium/RobotoMedium.ttf
+fonts/RobotoBold/RobotoBold.ttf
+css/style.css
+libs/jquery/jquery-2.2.3.min.js
+pisat.html

@@ -1,0 +1,12 @@
+CACHE MANIFEST
+# Версия 1.0
+
+CACHE:
+mp3/false.m4a
+mp3/true.m4a
+js/main.js
+fonts/RobotoMedium/RobotoMedium.ttf
+fonts/RobotoBold/RobotoBold.ttf
+css/style.css
+libs/jquery/jquery-2.2.3.min.js
+index.html

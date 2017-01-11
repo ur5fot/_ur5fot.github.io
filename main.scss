@@ -1,0 +1,238 @@
+@import "mixin";
+//html{
+//  height: 100%;
+//}
+
+%cf {
+  @include cf;
+}
+
+.body-event {
+  color: #111;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
+  font-weight: 300;
+  font-size: 11px;
+  background: #F7F7F7;
+  position: relative;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 500px;
+  width: 605px;
+  margin: 0 auto;
+  * {
+    transition: background .2s, color .2s, opacity .2s;
+  }
+  a {
+    color: #2b587a;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  h1 {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.7;
+    display: inline-block;
+  }
+  h2 {
+    a {
+      color: #2B587A;
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+  h3 {
+    a {
+      color: #2B587A;
+      font-size: 12px;
+      font-weight: 300;
+    }
+  }
+
+  .prelod-menu{
+    display: table;
+    margin:20px auto;
+  }
+  .prelod-result{
+    width: 48px;
+    display: none;
+    margin:20px auto;
+  }
+
+  .top-fixed {
+    position: fixed;
+    top: 0;
+    right: 17px;
+    background: #F7F7F7;
+    padding: 3px;
+    box-shadow: 0 0 5px rgba(#000, .3);
+    display: none;
+    z-index: 10;
+  }
+
+  .hr {
+    width: 100%;
+    margin-right: 10px;
+    //height: 1px;
+    border: 1px solid darken(#F7F7F7, 10%);
+    //color: darken(#F7F7F7, 0%);
+
+  }
+  .search {
+    margin-bottom: 10px;
+    margin-left: 20px;
+    display: inline-block;
+    animation: fade-in .5s;
+    select {
+      margin-right: 5px;
+    }
+  }
+  .summary {
+    @extend %cf;
+    animation: fade-in .5s;
+
+    > li {
+      position: relative;
+      display: inline-block;
+      float: left;
+      z-index: 1;
+
+      &:hover {
+        background: #fff;
+        .ignore-list {
+          li {
+            a {
+              height: 20px;
+              line-height: 20px;
+              font-size: 10px;
+            }
+          }
+        }
+      }
+      li {
+
+      }
+    }
+    .ignore-list {
+      background: #fff;
+      overflow: hidden;
+      position: absolute;
+      top: 16px;
+      left: 0;
+      display: inline-block;
+      font-size: 0;
+      width: 150px;
+      //width:auto;
+      box-shadow: 1px 1px 3px rgba(#000, .3);
+      li {
+
+      }
+      a {
+        transition: height .3s, padding .3s, line-height .3s, font-size .3s;
+        height: 0px;
+        padding: 0px 5px;
+        line-height: 0px;
+        //line-height: 23px;
+        //display: inline-block;
+        display: block;
+        font-size: 0px;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+
+    }
+
+    .ignore-link {
+      font-weight: 400;
+      span {
+        font-weight: 600;
+      }
+    }
+
+  }
+  .btn-search {
+    background: #6d8cb0;
+    padding: 6px 16px 7px 16px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 400;
+    border-radius: 2px;
+    &:hover {
+      background: lighten(#6d8cb0, 5%);
+    }
+  }
+  .friend-event {
+    position: relative;
+    margin-top: 10px;
+    animation: fade-in .4s ease;
+    &:hover {
+      background: #fff;
+      .closed {
+        opacity: 1;
+      }
+    }
+  }
+
+  .friend-img {
+    overflow: hidden;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 50px;
+  }
+  .closed {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+    height: 11px;
+    width: 11px;
+    background: url(https://vk.com/images/pics/statusx_op.gif) 0 0 no-repeat;
+    opacity: .7;
+
+  }
+
+  .friend-data {
+    margin-left: 65px;
+    min-height: 90px;
+    padding-right: 15px;
+    //  5168757251929990 приват
+  }
+  .event-list {
+    margin-bottom: 5px;
+  }
+  .event-description {
+    font-style: italic;
+    margin-left: 5px;
+  }
+
+  .online, .city {
+    font-size: 10px;
+    color: lighten(#000, 60%);
+    text-align: center;
+    line-height: 1.2;
+  }
+  .visibly {
+    display: block;
+  }
+  .hidden {
+    display: none;
+  }
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+
+
+
+}
+
+
+

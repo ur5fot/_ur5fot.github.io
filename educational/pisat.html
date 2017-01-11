@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<!--manifest="pisat.cache"-->
+<html lang="ru" manifest="pisat.cache">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Развивающие игры для детей</title>
+    <!-- стили плагинов -->
+    <!-- build:css css/vendor.min.css -->
+    <!-- endbuild -->
+    <!-- мои стили -->
+    <!-- build:css css/style.min.css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- endbuild -->
+    <!--скрипт для старых браузеров IE-->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<nav id="nav" class="nav">
+    <ul>
+        <li><a href="index.html">Складывать</a></li>
+        <li><a href="pisat.html">Писать</a></li>
+    </ul>
+</nav>
+<header>
+    <!--<h1>Напиши цифру </h1>-->
+</header>
+<main id="main">
+
+    <form action="#" id="pisat" class="form">
+        <input  type="number"  name="result" pattern="[1-20]" value="" autofocus>
+        <input type="submit" value="ok">
+    </form>
+    <div id="say" class="say">Сказать</div>
+    <div id="count" class="count">
+
+    </div>
+</main>
+<script id="hendel-count" type="application/hendel">
+    <div class="count-wiev"></div>
+</script>
+<div id="audio">
+    <audio src="mp3/false.m4a" id="false"></audio>
+    <audio src="mp3/true.m4a" id="true"></audio>
+    <audio src="mp3/s1.m4a" id="s1"></audio>
+    <audio src="mp3/s2.m4a" id="s2"></audio>
+    <audio src="mp3/s3.m4a" id="s3"></audio>
+    <audio src="mp3/s4.m4a" id="s4"></audio>
+    <audio src="mp3/s5.m4a" id="s5"></audio>
+    <audio src="mp3/s6.m4a" id="s6"></audio>
+    <audio src="mp3/s7.m4a" id="s7"></audio>
+    <audio src="mp3/s8.m4a" id="s8"></audio>
+    <audio src="mp3/s9.m4a" id="s9"></audio>
+    <audio src="mp3/s10.m4a" id="s10"></audio>
+</div>
+
+<!-- build:js js/vendor.min.js -->
+<!--<script src="libs/prefixfree/prefixfree.min.js"></script>-->
+<!--<script src="libs/remFollbek/rem.min.js"></script>-->
+<script src="libs/jquery/jquery-2.2.3.min.js"></script>
+<!-- endbuild -->
+<!-- build:js js/main.min.js -->
+<!--<script src="js/main.js"></script>-->
+<script src="js/pisat.js"></script>
+<!-- endbuild -->
+</body>
+
+</html>

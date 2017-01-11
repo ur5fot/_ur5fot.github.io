@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Мерроприятия друзей 0.1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,600,300italic,400italic&subset=latin,cyrillic-ext,cyrillic,latin-ext'
+          rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--VK-->
+    <script src="//vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
+
+    <!-- polyfill -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+    <!-- handlebars -->
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+
+    <script src="js/main.js"></script>
+</head>
+
+<body>
+<div class="body-event">
+    <header class="top-fixed">
+        <div class="loading">Поиск: <i class="loading-count">0%</i></div>
+    </header>
+
+    <main id='main'>
+        <template id='menu-search'>
+            <h1>Мероприятия друзей</h1>
+            <div class="search">
+                <buttom class="btn-search">{{btnSearch}}</buttom>
+            </div>
+            <ul class="summary">
+                <li><a class="ignore-link" href="#">Не показываются <i class="ignoreCount">{{ignoreList.count}}</i></a>
+                    <ul class="ignore-list ">
+                        {{#if ignoreList.count}}
+                        {{#each ignoreList.items}}
+                        <li><a title="Показать" friendsId='{{id}}' href="https://vk.com/{{domain}}">{{name}}</a></li>
+                        {{/each}}
+                        {{/if}}
+                    </ul>
+                </li>
+            </ul>
+            <hr class="hr">
+        </template>
+        <template id='menu-search-item'>
+            <li><a title="Показать" friendsId='{{id}}' href="https://vk.com/{{domain}}">{{name}}</a></li>
+        </template>
+
+        <div class="result"></div>
+
+        <img id="prelod" class="prelod" src="img/prelod.gif" alt="">
+
+    </main>
+    <template id="resultEvent">
+        <div class="friend-event {{hidden}}" friendsId='{{id}}' friendsDomain={{domain}}
+             friendsname='{{first_name}} {{last_name}}'>
+            <div class="friend-img">
+                <a target="_blank" href="https://vk.com/{{domain}}"><img src="{{photo_50}}" alt=""></a>
+                <p class="online">{{online}}</p>
+                <p class="city">{{city}}</p>
+            </div>
+            <div title="Это не показывать" closed class="closed"></div>
+            <div class="friend-data">
+                <h2><a target="_blank" href="https://vk.com/{{domain}}">{{first_name}} {{last_name}}</a></h2>
+                {{#each events}}
+                <div class="event-list">
+                    <h3><a target="_blank" href="https://vk.com/{{screen_name}}">{{name}}</a></h3>
+                    <!--<p class="event-description">Поездка 20 - 22 июня 2016 года на космодром Байконур с наблюдением-->
+                    <!--запуска пилотируемого космического корабля «Союз МС-01». </p>-->
+                </div>
+                {{/each}}
+            </div>
+            <!--<hr class="hr">-->
+        </div>
+    </template>
+</div>
+</body>
+
+</html>

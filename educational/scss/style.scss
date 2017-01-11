@@ -1,0 +1,161 @@
+@import "lib/_reset.scss";
+@import "lib/_mixin.scss";
+@import "lib/_colors_variables.scss";
+@import "fonts";
+
+@import "_general.scss";
+
+* {
+  box-sizing: border-box;
+  // overflow: hidden;
+}
+html{
+  font-size: 40px;
+  @media all  and (max-width: 750px){
+    font-size:30px;
+  }
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+
+}
+
+body {
+  background: $aqua;
+  color: $black;
+  font-size: 1rem;
+  padding:  0;
+  font-family: "RobotoMedium"
+}
+
+.nav{
+  background: $navy;
+  box-shadow:  0 0 20px #000;
+  ul{
+    display: table;
+    @include cf;
+    margin:0 auto;
+    li{
+      float: left;
+      display: table;
+      padding-right:1rem;
+      &:last-of-type{
+        padding-right:0;
+      }
+      a{
+        display: block;
+        text-transform: uppercase;
+        font-size:.4rem;
+        line-height:1.7;
+        color: #fff;
+        &:hover{
+          color: $aqua;
+
+        }
+      }
+    }
+  }
+}
+header{
+  h1{
+    text-align: center;
+    font-size:.6rem;
+  }
+}
+#main {
+  padding-top:.5rem;
+  display: table;
+  //width: 15rem;
+  margin: 0 auto;
+}
+
+.form {
+  display: inline-block;
+  input {
+    font-family: "RobotoBold";
+    border: none;
+    background: #ffffff;
+    font-size: 1rem;
+    width: 2rem;
+    height: 2rem;
+    line-height:2rem;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: $black 0 0 10px;
+    padding: 0;
+    margin-right: .2rem;
+    &:last-of-type{
+      margin-right:0;
+      margin-left:.7rem;
+    }
+    //display: table;
+    &:focus {
+
+    }
+  }
+  input[type='submit'] {
+    //display: none;
+    background: $maroon;
+    color:  $aqua;
+    cursor: pointer;
+    &:hover{
+      background: lighten($maroon, 15%);
+    }
+  }
+  input[type='number'] {
+    padding-left:.3rem;
+  }
+  input[name="result"] {
+    box-shadow: $red 0 0 20px;
+
+  }
+}
+.count{
+  padding-top:.5rem;
+  height:1.5rem;
+  display: table;
+  margin: 0 auto;
+  //opacity: 1;
+}
+.count-wiev{
+  display: inline-block;
+  height: 1rem;
+  width: .5rem;
+  margin-right:.3rem;
+  background: $fuchsia;
+  background: $purple;
+  border-radius: 50%;
+  box-shadow: $black 0 0 10px;
+  //opacity: 0;
+  transition: width 5s;
+}
+.say{
+  width: 3rem;
+  margin-left:1rem;
+  display: inline-block;
+  line-height:1.5rem;
+  text-align: center;
+  margin-top:.3rem;
+  background: $olive;
+  font-size:.6rem;
+  border-radius: 5px;
+  box-shadow: $black 0 0 10px;
+  color:  $aqua;
+  //text-shadow: 1px 0 0 #111;
+  cursor: pointer;
+  &:hover{
+    background: lighten($olive, 15%);
+  }
+
+  //
+
+}
+
+
+ 
+
+ 
+
+

@@ -1,0 +1,231 @@
+* {
+  box-sizing: border-box;
+}
+
+.body-event .summary:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.body-event {
+  color: #111;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
+  font-weight: 300;
+  font-size: 11px;
+  background: #F7F7F7;
+  position: relative;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 500px;
+  width: 605px;
+  margin: 0 auto;
+}
+
+.body-event * {
+  transition: background .2s, color .2s, opacity .2s;
+}
+
+.body-event a {
+  color: #2b587a;
+  text-decoration: none;
+}
+
+.body-event a:hover {
+  text-decoration: underline;
+}
+
+.body-event h1 {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+  display: inline-block;
+  animation: fade-in .5s;
+}
+
+.body-event h2 a {
+  color: #2B587A;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.body-event h3 a {
+  color: #2B587A;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.body-event .prelod {
+  width: 48px;
+  display: table;
+  margin: 20px auto;
+}
+
+.body-event .top-fixed {
+  position: fixed;
+  top: 0;
+  right: 17px;
+  background: #F7F7F7;
+  padding: 3px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  display: none;
+  z-index: 10;
+}
+
+.body-event .loading {
+  display: table;
+}
+
+.body-event .hr {
+  width: 100%;
+  margin-right: 10px;
+  border: 1px solid #dedede;
+}
+
+.body-event .search {
+  margin-bottom: 10px;
+  margin-left: 20px;
+  display: inline-block;
+}
+
+.body-event .search select {
+  margin-right: 5px;
+}
+
+.body-event .summary {
+  animation: fade-in .5s;
+}
+
+.body-event .summary > li {
+  position: relative;
+  display: inline-block;
+  float: left;
+  z-index: 1;
+}
+
+.body-event .summary > li:hover {
+  background: #fff;
+}
+
+.body-event .summary > li:hover .ignore-list li a {
+  height: 20px;
+  line-height: 20px;
+  font-size: 10px;
+}
+
+.body-event .summary .ignore-list {
+  background: #fff;
+  overflow: hidden;
+  position: absolute;
+  top: 16px;
+  left: 0;
+  display: inline-block;
+  font-size: 0;
+  width: 150px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.body-event .summary .ignore-list a {
+  transition: height .3s, padding .3s, line-height .3s, font-size .3s;
+  height: 0px;
+  padding: 0px 5px;
+  line-height: 0px;
+  display: block;
+  font-size: 0px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.body-event .summary .ignore-link {
+  font-weight: 400;
+}
+
+.body-event .summary .ignore-link span {
+  font-weight: 600;
+}
+
+.body-event .btn-search {
+  background: #6d8cb0;
+  padding: 6px 16px 7px 16px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 400;
+  border-radius: 2px;
+}
+
+.body-event .btn-search:hover {
+  background: #7e99b9;
+}
+
+.body-event .friend-event {
+  position: relative;
+  margin-top: 10px;
+  animation: fade-in .5s;
+}
+
+.body-event .friend-event:hover {
+  background: #fff;
+}
+
+.body-event .friend-event:hover .closed {
+  opacity: 1;
+}
+
+.body-event .friend-img {
+  overflow: hidden;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 50px;
+}
+
+.body-event .closed {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+  height: 11px;
+  width: 11px;
+  background: url(https://vk.com/images/pics/statusx_op.gif) 0 0 no-repeat;
+  opacity: .5;
+}
+
+.body-event .friend-data {
+  margin-left: 65px;
+  min-height: 90px;
+  padding-right: 15px;
+}
+
+.body-event .event-list {
+  margin-bottom: 5px;
+}
+
+.body-event .event-description {
+  font-style: italic;
+  margin-left: 5px;
+}
+
+.body-event .online, .body-event .city {
+  font-size: 10px;
+  color: #999999;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.body-event .visibly {
+  display: block;
+}
+
+.body-event .hidden {
+  display: none;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

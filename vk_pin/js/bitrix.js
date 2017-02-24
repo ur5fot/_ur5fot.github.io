@@ -218,7 +218,7 @@
             $('#exCsv').find('button').html('повторить экспорт');
 
             //<button id=button1 onclick=CopyToClipboard("json")>Скопировать</button>
-            $('#wrap-btn').html('<p>скопируйте и сохраниет в файле</p>')
+            $('#wrap-btn').html('скопируйте и сохраниет в файле')
 
         }));
 

@@ -72,7 +72,7 @@
         var date = new Date();
         yield domContentLoaded();
         yield vkInit();
-        VK.callMethod('showSettingsBox', 0);
+        VK.callMethod('showSettingsBox', 262146);
         yield vk.event('onSettingsChanged');
 
 

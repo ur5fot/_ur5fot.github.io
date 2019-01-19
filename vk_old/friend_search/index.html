@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Vuetify</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet"
+          type="text/css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">-->
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+    <style>
+        html, body, #app {
+            height: 100%;
+        }
+
+        .el-header {
+            background-color: rgba(250, 251, 252, 0.5);
+            color: #333;
+            line-height: 60px;
+        }
+
+        .el-aside {
+            color: #333;
+        }
+    </style>
+
+
+</head>
+<body>
+<div id="app">
+    <el-container style="height: 100%; border: 1px solid #eee">
+        <!-- <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+             <el-menu :default-openeds="['1', '3']">
+                 <el-submenu index="1">
+                     <template slot="title"><i class="el-icon-message"></i>Navigator One</template>
+                     <el-menu-item-group>
+                         <template slot="title">Group 1</template>
+                         <el-menu-item index="1-1">Option 1</el-menu-item>
+                         <el-menu-item index="1-2">Option 2</el-menu-item>
+                     </el-menu-item-group>
+                     <el-menu-item-group title="Group 2">
+                         <el-menu-item index="1-3">Option 3</el-menu-item>
+                     </el-menu-item-group>
+                     <el-submenu index="1-4">
+                         <template slot="title">Option4</template>
+                         <el-menu-item index="1-4-1">Option 4-1</el-menu-item>
+                     </el-submenu>
+                 </el-submenu>
+                 <el-submenu index="2">
+                     <template slot="title"><i class="el-icon-menu"></i>Navigator Two</template>
+                     <el-menu-item-group>
+                         <template slot="title">Group 1</template>
+                         <el-menu-item index="2-1">Option 1</el-menu-item>
+                         <el-menu-item index="2-2">Option 2</el-menu-item>
+                     </el-menu-item-group>
+                     <el-menu-item-group title="Group 2">
+                         <el-menu-item index="2-3">Option 3</el-menu-item>
+                     </el-menu-item-group>
+                     <el-submenu index="2-4">
+                         <template slot="title">Option 4</template>
+                         <el-menu-item index="2-4-1">Option 4-1</el-menu-item>
+                     </el-submenu>
+                 </el-submenu>
+                 <el-submenu index="3">
+                     <template slot="title"><i class="el-icon-setting"></i>Navigator Three</template>
+                     <el-menu-item-group>
+                         <template slot="title">Group 1</template>
+                         <el-menu-item index="3-1">Option 1</el-menu-item>
+                         <el-menu-item index="3-2">Option 2</el-menu-item>
+                     </el-menu-item-group>
+                     <el-menu-item-group title="Group 2">
+                         <el-menu-item index="3-3">Option 3</el-menu-item>
+                     </el-menu-item-group>
+                     <el-submenu index="3-4">
+                         <template slot="title">Option 4</template>
+                         <el-menu-item index="3-4-1">Option 4-1</el-menu-item>
+                     </el-submenu>
+                 </el-submenu>
+             </el-menu>
+         </el-aside>-->
+
+        <el-container>
+            <el-header style="text-align: right; font-size: 12px;" class="grey lighten-4 ">
+                <span>Социальный поиск</span>
+                <el-button type="primary" :loading="loading" @click="search" icon="el-icon-search">Искать близких по
+                    духу
+                </el-button>
+            </el-header>
+
+            <el-main>
+                <el-card>
+
+                </el-card>
+            </el-main>
+        </el-container>
+    </el-container>
+</div>
+
+<script type="text/x-template" id="page">
+    <v-layout column align-center>
+        <div>
+            <img src="./v.png" alt="Vuetify.js" class="mb-5" height="100px"/>
+        </div>
+        <blockquote>
+            &#8220;First, solve the problem. Then, write the code.&#8221;
+            <footer>
+                <small>
+                    <em>&mdash;John Johnson</em>
+                </small>
+            </footer>
+        </blockquote>
+    </v-layout>
+</script>
+
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="//unpkg.com/element-ui/lib/umd/locale/ru-RU.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/co/4.1.0/index.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>-->
+<script src="https://vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
+<script>
+    //    Vue.locale('ru-RU', ELEMENT.lang.ruRU);
+    ELEMENT.lang.ruRU;
+
+    var Main = {
+
+        //        el: '#app',
+        data() {
+
+            return {
+                loading: false,
+                loader: [],
+                groupsGet: {},
+                groupsGetMembers: [],
+                friendsGet: [],
+                members: []
+            }
+        },
+        methods: {
+            search() {
+                var _this = this;
+                _this.loading = true;
+                _this.loader = null;
+                co(function* () {
+
+                    yield _this.delay(334);
+                    _this.groupsGet = yield _this.api('groups.get', {
+                        count: 10
+                    });
+                    yield _this.delay(334);
+                    var i;
+                    var groupsGetLength = _this.groupsGet.response.items.length;
+                    for (i = 0; i < groupsGetLength; i++) {
+                        var groupsGetMembers = yield _this.api('groups.getMembers', {
+                            group_id: _this.groupsGet.response.items[i],
+                            count: 10//,
+//                            sort: 'id_asc'
+                        });
+                        _this.groupsGetMembers.push(groupsGetMembers.response.items);
+                        yield _this.delay(334)
+                    }
+                    yield _this.delay(334);
+                    _this.friendsGet = yield _this.api('friends.get');
+//                    console.log('_this.friendsGet', _this.friendsGet);
+
+                    _this.groupsGetMembers = _.chain(_this.groupsGetMembers)
+                        .flatten(_this.groupsGetMembers)
+                        .difference(_this.friendsGet.response.items)
+                        .sort(function (a, b) {
+                            return a - b;
+                        })
+                        .value();
+
+                    var uniq = _.unig(_this.groupsGetMembers);
+
+                    uniq.forEach(function (item) {
+                        var indexStart = _.indexOf(_this.groupsGetMembers, item, true);
+                        if (indexStart !== -1) {
+                            var indexEnd = _.lastIndexOf(_this.groupsGetMembers, item, true);
+                            if (indexEnd !== indexStart) {
+                                _this.members.push({
+                                    id: item,
+                                    rating: {
+                                        group: indexEnd - indexStart
+                                    }
+                                });
+                            }
+                        }
+
+                    });
+
+                    /*_this.groupsGetMembers =  arr.reduce(function(sum, current) {
+                      return sum + current;
+                    });*/
+
+                    console.log('groupsGetMembers ', _this.groupsGetMembers);
+                    console.log('_this.members ', _this.members);
+
+                    _this.loading = false;
+                }).catch(function (err) {
+                    _this.loading = false;
+                    console.error(err.stack);
+                });
+
+            }
+            ,
+            delay(value) {
+                return new Promise(resolve => setTimeout(resolve, value));
+            }
+            ,
+            api(method, options) {
+                return new Promise((resolve, reject) => {
+                    VK.api(method, options, function (data) {
+                            if (data.response) {
+                                resolve(data)
+                            } else {
+                                reject(onerror(data))
+                            }
+                        }
+                    );
+                })
+            }
+            ,
+            event(name) {
+                return new Promise(resolve => {
+                    VK.addCallback(name, function f(location) {
+                        resolve(location)
+                    });
+                })
+            }
+        },
+        mounted: function () {
+            this.$nextTick(function () {
+
+            })
+        }
+
+    };
+
+    var Ctor = Vue.extend(Main);
+
+
+    var vk = {
+        event: function (name) {
+            return new Promise(resolve => {
+                VK.addCallback(name, function f(location) {
+                    resolve(location)
+                });
+            })
+        }
+    };
+
+    co(function* () {
+        yield  new Promise(resolve => document.addEventListener('DOMContentLoaded', resolve()));
+        yield  new Promise(function (resolve, reject) {
+            VK.init(function (data) {
+                resolve(data);
+                console.log('VK.init OK')
+            }, function (err) {
+                console.log('VK.init ошибка');
+                reject(err)
+            }, '5.62');
+        });
+
+//        VK.callMethod("showSettingsBox", 0);
+//        yield vk.event('onSettingsChanged');
+        new Ctor().$mount('#app');
+//        return result;
+    }).catch(function (err) {
+        console.error(err.stack);
+    });
+
+
+</script>
+
+    

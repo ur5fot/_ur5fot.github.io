@@ -51,3 +51,6 @@ crashlytics.properties
 crashlytics-build.properties
 
 # Created by .ignore support plugin (hsz.mobi)
+
+vk_old/social_search/node_modules
+vk_old/social_search/.idea

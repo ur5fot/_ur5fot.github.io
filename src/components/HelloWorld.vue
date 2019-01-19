@@ -1,8 +1,8 @@
 <template>
     <div class="hello">
-        <h1>Full Stack вебразработчик</h1>
+        <h1>Full Stack веб разработчик</h1>
 
-         <h3>Мои странички в интернете:</h3>
+         <h3>Мои странички:</h3>
         <ul>
             <li><a href="https://www.linkedin.com/in/ur5fot/" target="_blank"
                    rel="noopener">linkedin</a></li>
